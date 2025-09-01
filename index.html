@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="j_idt2"><link type="text/css" rel="stylesheet" href="/outages/javax.faces.resource/theme.css.xhtml?ln=primefaces-saga&amp;v=10.0.0&amp;v=10.0.0" /><link type="text/css" rel="stylesheet" href="/outages/javax.faces.resource/primeicons/primeicons.css.xhtml?ln=primefaces&amp;v=10.0.0&amp;v=10.0.0" /><link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.20/af-2.3.4/b-1.6.1/b-colvis-1.6.1/b-html5-1.6.1/b-print-1.6.1/cr-1.5.2/fc-3.3.0/fh-3.1.6/r-2.2.3/rg-1.1.1/rr-1.2.6/sc-2.0.1/sl-1.3.1/datatables.min.css" /><link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/plug-ins/1.10.18/features/mark.js/datatables.mark.min.css" /><link type="text/css" rel="stylesheet" href="/outages/javax.faces.resource/css/default/core.css.xhtml?ln=bsf" /><link type="text/css" rel="stylesheet" href="/outages/javax.faces.resource/css/bsf.css.xhtml?ln=bsf" /><!--[if lt IE 9]><script src="/outages/javax.faces.resource/js/html5shiv.js.xhtml?ln=bsf"></script><script src="/outages/javax.faces.resource/js/respond.js.xhtml?ln=bsf"></script><![endif]--><script type="text/javascript" src="/outages/javax.faces.resource/jq/jquery.js.xhtml?ln=bsf"></script><script type="text/javascript" src="/outages/javax.faces.resource/jsf.js.xhtml?ln=javax.faces"></script><script type="text/javascript" src="/outages/javax.faces.resource/js/tooltip.js.xhtml?ln=bsf"></script><script type="text/javascript" src="/outages/javax.faces.resource/js/bsf.js.xhtml?ln=bsf"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.20/af-2.3.4/b-1.6.1/b-colvis-1.6.1/b-html5-1.6.1/b-print-1.6.1/cr-1.5.2/fc-3.3.0/fh-3.1.6/r-2.2.3/rg-1.1.1/rr-1.2.6/sc-2.0.1/sl-1.3.1/datatables.min.js"></script><script src="https://cdn.jsdelivr.net/g/mark.js(jquery.mark.min.js)"></script><script src="https://cdn.datatables.net/plug-ins/1.10.18/features/mark.js/datatables.mark.js"></script><script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.locale='en_US';PrimeFaces.settings.viewId='/index1.xhtml';PrimeFaces.settings.contextPath='/outages';PrimeFaces.settings.cookiesSecure=false;}</script><meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+        <title>TNPDCL - Planned Power Shutdown List</title>
+        <meta content="" name="descriptison" />
+        <meta content="" name="keywords" />
+
+        <!-- Favicons -->
+        <link href="assets/img/tangedco_icon.png" rel="icon" />
+        <link href="assets/img/tangedco_icon.png" rel="apple-touch-icon" />
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+
+        <!-- external CSS Files -->
+  <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="assets/css/ticker.css" />     
+<style>
+    /* Global Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f4f8; /* Light blue-gray background */
+      margin: 0;
+      padding: 0;
+      font-size:18px;
+      height: 100vh;
+    }
+
+    /* Container Styling */
+    .container {
+      margin-top: 70px;
+    
+    }
+
+    /* Table Container Styling */
+    .table-container {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      overflow: hidden;
+      margin-bottom: 40px;
+        max-width: 100%;
+    }
+
+    /* Table Styling */
+    .table {
+      max-width: 100%;
+      border-spacing: 0;
+    }
+
+    /* Table Header Styling */
+    .table th {
+      background-color: #1e3a8a; /* Dark blue background */
+      color: #ffffff; /* White text */
+      text-align: left;
+      font-weight: 600;
+      padding: 18px;
+      font-size: 18px; /* Larger font size for headers */
+    }
+
+    /* Table Row Styling */
+    .table td {
+      background-color: #ffffff;
+      font-weight:500;
+      color: darkblue; /* Soft dark gray-blue text */
+      text-align: left;
+      padding: 15px;
+      vertical-align: middle;
+      font-size: 18px; /* Slightly larger font size for readability */
+      border-top: 1px solid #e1e1e1;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+   
+    /* Badge Styling */
+    .badge {
+      padding: 8px 16px;
+      font-size: 14px; /* Badge text size */
+      border-radius: 15px;
+      text-transform: capitalize;
+      font-weight: 500;
+    }
+
+    .badge-success { background-color: #2ecc71; } /* Light green */
+    .badge-warning { background-color: #ffeb3b; } /* Yellow */
+    .badge-danger { background-color: #e74c3c; } /* Red */
+    .badge-primary { background-color: #3498db; } /* Strong blue */
+
+    /* Action Column Icons */
+    .action-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-start;
+    }
+    .action-icons i {
+      cursor: pointer;
+      font-size: 20px; /* Larger icon size */
+      color: #2c3e50; /* Dark blue-gray icons */
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .action-icons i:hover {
+      color: #3498db; /* Blue hover effect */
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .table th, .table td {
+        font-size: 13px; /* Adjust font size for mobile */
+        padding: 10px;
+      }
+      .action-icons {
+        gap: 8px;
+      }
+    }
+    /* Heading Style */
+    h3 {
+      font-size: 32px; /* Larger font size */
+      font-weight: 700; /* Bold text */
+      color: #2c3e50; /* Dark blue-gray color for the heading */
+      text-align: center;
+      margin-bottom: 40px; /* Space below the heading */
+    
+    
+      position: relative; /* For adding text shadow */
+    }
+    .btn{
+        font-size:18px;
+        border:2px solid blue;
+    }
+  </style></head><body>
+        <div class="container" style="width: 1380px;">
+        <div class="table-container">
+        <h3 align="center"><img src="assets/img/tnpdcl1.png" alt="" class="img-fluid align-center" /> TNPDCL - Planned Power Outage Details</h3>  
+        <h4 align="center">Details of Power Shut Down as on 01-09-2025 17:20:15 PM</h4>
+<form id="j_idt6" name="j_idt6" method="post" action="/outages/index1.xhtml" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_idt6" value="j_idt6" />
+ 
+
+
+                      
+                            <h4 align="right"><strong> <a href="viewshutdown.xhtml"><i class="icofont-home"></i>Home</a></strong></h4><table id="j_idt6:j_idt8" class="table table-bordered table-striped table-hover table table-responsive j_idt6j_idt8Table" cellspacing="0" style="width:100%"><thead>
+                                        <tr align="center">
+                                            <th><div align="center">Date Of Outage</div></th>
+                                            <th><div align="center">Town</div></th>
+                                            <th><div align="center">Substation</div> </th>
+                                            <th><div align="center">Feeder</div></th>
+                                            <th><div align="center" style="width:75px;">Location </div></th>                               
+                                            <th><div align="center">Type of work </div></th>   
+                                            <th><div align="center">From Date</div></th>
+                                            <th><div align="center">To Date</div></th>
+                                        </tr></thead><tbody></tbody></table><script>$(document).ready(function() {j_idt6J_idt8Widget = $('.j_idt6j_idt8Table');var wrapper = $('#j_idt6\\:j_idt8_wrapper');wrapper.replaceWith(j_idt6J_idt8Widget);var table = j_idt6J_idt8Widget.DataTable({fixedHeader: true,responsive: false,paging: true,pageLength: 10,lengthMenu: [ 10, 25, 50, 100 ],lengthChange: true,searching: true,order: [],stateSave: true,mark: true, language: { url: '/outages/javax.faces.resource/jq/ui/i18n/dt/datatable-en.json.xhtml?ln=bsf' } ,dom: '<"col-sm-6"l><"col-sm-6"f>rtiBp',buttons: ['excel']});} );</script><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="400778326963223373:-8989909756175318034" autocomplete="off" />
+</form>     </div></div>
+          
+        <!-- ======= Footer ======= -->
+
+
+
+        <div id="preloader"></div>
+        <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+        <!-- external JS Files -->
+
+
+
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script></body>
+</html>
