@@ -2,3 +2,6 @@ voice/
 captcha.jpg
 aadhav
 __pycache__
+venv
+.env
+tnepds

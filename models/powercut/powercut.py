@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from config import POWER_BASE_URL
-from models.ocrtotext import readocr
+from models.powercut.ocrtotext import readocr
 import json
 import re
 

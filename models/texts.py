@@ -20,3 +20,25 @@ def outage_text(outage, keywords):
                   f"due to {entry['type_of_work']}. Please charge your devices.")
     if not success:
             speak("No power outage in this week.")
+
+def pds_text(data):
+    messages = []
+    
+    # Ensure we got a dictionary, not a raw string
+    if isinstance(data, str):
+        import json
+        data = json.loads(data)
+    
+    for group in data.get("entitlementDto", []):
+        remaining_qty = group["entitledQuantity"] - group["currentQuantity"]
+        if group["currentQuantity"] > 0:
+            products = group["productList"]
+            product_msgs = f'{products[0]["productName"]} {products[0]["productPrice"]} rupees quantity {group["currentQuantity"]} {products[0]["productUnit"]}'
+            messages.append(product_msgs)
+    final_message = "You still not bought " + ", ".join(messages)+" for this month in ration shop."
+
+    if final_message.strip():   # avoid sending empty string
+        print(final_message)
+        speak(final_message)
+    else:
+        print("✅ All ration items already bought.")

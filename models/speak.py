@@ -4,10 +4,11 @@ import numpy as np
 import sounddevice as sd
 from piper.voice import PiperVoice
 import os
+import config
 
 def speak(text):
     # Load Piper voice model
-    voice = PiperVoice.load("voice/en_GB-alba-medium.onnx")  # Ensure this model exists
+    voice = PiperVoice.load(config.VOICE_DIR)  # Ensure this model exists
 
     # Create a temporary WAV file
     with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp_wav:
